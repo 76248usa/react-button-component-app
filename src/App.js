@@ -1,23 +1,21 @@
 import logo from './logo.svg';
+import Button from './Button';
 import './App.css';
+import { FaBeer } from 'react-icons/fa';
+import {FiAperture} from 'react-icons/fi';
 
 function App() {
+
+  const handleClick = () => {
+    console.log('click!!!!')
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div><Button primary rounded onClick={handleClick}><FaBeer className="mr-1"/>primary </Button></div>
+      <div><Button secondary onMouseOver={handleClick}> <FiAperture className="mr-1" />secondary</Button></div>
+      <div><Button warning onMouseOver={handleClick}>warning</Button></div>
+      <div><Button danger>danger</Button></div>
+      <div><Button outline rounded>outline</Button></div>
     </div>
   );
 }
