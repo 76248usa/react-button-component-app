@@ -1,23 +1,25 @@
 import logo from './logo.svg';
-import Button from './Button';
+import Button from './components/Button';
 import './App.css';
 import { FaBeer } from 'react-icons/fa';
 import {FiAperture} from 'react-icons/fi';
+import Accordion from './components/Accordion';
 
 function App() {
+  const items = [
+    {label: 'Click here',
+    content: 'Here is more info',
+    id: 'qwe'},
+    {label: 'Another section',
+    content: 'More content to show',
+   id: 'rty'},
+    {label: 'More label content',
+    content: 'Here is more info about the content',
+  id: 'uio'},
 
-  const handleClick = () => {
-    console.log('click!!!!')
-  }
-  return (
-    <div className="App">
-      <div><Button primary rounded onClick={handleClick}><FaBeer className="mr-1"/>primary </Button></div>
-      <div><Button secondary onMouseOver={handleClick}> <FiAperture className="mr-1" />secondary</Button></div>
-      <div><Button warning onMouseOver={handleClick}>warning</Button></div>
-      <div><Button danger>danger</Button></div>
-      <div><Button outline rounded>outline</Button></div>
-    </div>
-  );
+  ]
+
+  return <Accordion items={items}/>
 }
 
 export default App;
