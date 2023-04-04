@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import Button from './components/Button';
-import './App.css';
-import { FaBeer } from 'react-icons/fa';
-import {FiAperture} from 'react-icons/fi';
-import Accordion from './components/Accordion';
+import { useState } from 'react';
+import Dropdown from './components/Dropdown';
 
 function App() {
-  const items = [
-    {label: 'Click here',
-    content: 'Here is more info',
-    id: 'qwe'},
-    {label: 'Another section',
-    content: 'More content to show',
-   id: 'rty'},
-    {label: 'More label content',
-    content: 'Here is more info about the content',
-  id: 'uio'},
+  const [selection, setSelection] = useState(null);
 
-  ]
+  
+  const onClickChoose = (option) => {
+    setSelection(option)
+  }
+  const options = [
+    { label: 'Red', value: 'red' },
+    { label: 'Green', value: 'green' },
+    { label: 'Blue', value: 'blue' },
+  ];
 
-  return <Accordion items={items}/>
+  return (
+    <Dropdown options={options} onClickChoose={onClickChoose} selection={selection} />
+  );
 }
 
 export default App;
+
